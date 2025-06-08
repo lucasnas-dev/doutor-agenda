@@ -6,7 +6,7 @@ import { headers } from "next/headers";
 import { db } from "@/db";
 import { patientsTable } from "@/db/schema";
 import { auth } from "@/lib/auth";
-import { actionClient } from "@/lib/next-safe-actions";
+import { actionClient } from "@/lib/next-safe-action";
 
 import { upsertPatientSchema } from "./schema";
 

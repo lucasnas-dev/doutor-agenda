@@ -8,7 +8,7 @@ import { z } from "zod";
 import { db } from "@/db";
 import { doctorsTable } from "@/db/schema";
 import { auth } from "@/lib/auth";
-import { actionClient } from "@/lib/next-safe-actions";
+import { actionClient } from "@/lib/next-safe-action";
 
 export const deleteDoctor = actionClient
   .schema(

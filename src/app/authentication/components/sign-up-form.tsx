@@ -5,7 +5,7 @@ import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
-import z from "zod";
+import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -27,12 +27,12 @@ const registerSchema = z.object({
   email: z
     .string()
     .trim()
-    .min(1, { message: "Email é obrigatório" })
-    .email({ message: "Email inválido" }),
+    .min(1, { message: "E-mail é obrigatório" })
+    .email({ message: "E-mail inválido" }),
   password: z
     .string()
     .trim()
-    .min(8, { message: "a senha deve ter pelo menos 8 caracteres" }),
+    .min(8, { message: "A senha deve ter pelo menos 8 caracteres" }),
 });
 
 const SignUpForm = () => {
@@ -59,7 +59,7 @@ const SignUpForm = () => {
         },
         onError: (ctx) => {
           if (ctx.error.code === "USER_ALREADY_EXISTS") {
-            toast.error("E-mail já cadastrado");
+            toast.error("E-mail já cadastrado.");
             return;
           }
           toast.error("Erro ao criar conta.");
@@ -82,7 +82,7 @@ const SignUpForm = () => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>nome</FormLabel>
+                  <FormLabel>Nome</FormLabel>
                   <FormControl>
                     <Input placeholder="Digite seu nome" {...field} />
                   </FormControl>
@@ -95,9 +95,9 @@ const SignUpForm = () => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel>E-mail</FormLabel>
                   <FormControl>
-                    <Input placeholder="Digite seu email" {...field} />
+                    <Input placeholder="Digite seu e-mail" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
