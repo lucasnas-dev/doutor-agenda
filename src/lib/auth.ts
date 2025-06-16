@@ -15,20 +15,6 @@ export const auth = betterAuth({
     usePlural: true,
     schema,
   }),
-  // Configuração de URLs e origens confiáveis
-  baseURL: process.env.BETTER_AUTH_URL!,
-  trustedOrigins: [
-    process.env.NEXT_PUBLIC_APP_URL!,
-    // Fallback para desenvolvimento local
-    "http://localhost:3000",
-  ],
-  // Configurações de segurança
-  advanced: {
-    crossSubDomainCookies: {
-      enabled: false,
-    },
-    useSecureCookies: process.env.NODE_ENV === "production",
-  },
   socialProviders: {
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID as string,
@@ -104,5 +90,3 @@ export const auth = betterAuth({
     enabled: true,
   },
 });
-
-export type Session = typeof auth.$Infer.Session;
